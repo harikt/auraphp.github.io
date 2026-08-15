@@ -1,6 +1,9 @@
 {% if site.JB.comments.provider and page.JB.comments != false %}
 
-{% include JB/subscribe %}
+{% comment %}
+  JB/subscribe used to be included here. It was a FeedBurner email form, and
+  Google shut that service down in July 2021, so it has been removed.
+{% endcomment %}
 
 {% case site.JB.comments.provider %}
 {% when "disqus" %}
