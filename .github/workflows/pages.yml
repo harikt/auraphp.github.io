@@ -49,6 +49,14 @@ jobs:
       - run: bundle exec jekyll build --trace
         env:
           JEKYLL_ENV: production
+          # jekyll-github-metadata (pulled in by the github-pages gem) resolves
+          # site.github at build time. The legacy builder handed it the repo
+          # name; a workflow has to. Derived from the repo being built, so this
+          # is correct on a fork as well as on auraphp/auraphp.github.io.
+          PAGES_REPO_NWO: ${{ github.repository }}
+          # Without a token the same plugin calls the API anonymously and warns
+          # about missing fields; the run's own token is enough.
+          JEKYLL_GITHUB_TOKEN: ${{ github.token }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
