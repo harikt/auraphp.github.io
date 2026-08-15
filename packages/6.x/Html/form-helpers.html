@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html class="no-js" lang="en">
     <head>
         <title>Aura for PHP : Aura.Html Form Helpers</title>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="theme-color" content="#eaf3fa">
 
-        <link rel="alternate" type="application/atom+xml" title="Atom" href="http://auraphp.com/blog/atom.xml" />
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="/blog/atom.xml" />
 
         <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
@@ -29,53 +25,75 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
         <link rel="manifest" href="/favicon/manifest.json">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!--
+            The same two stylesheets the Jekyll pages load, so the manuals and
+            the rest of the site are one design. No Bootstrap: this template
+            used to carry its own copy of the old chrome, which is why the
+            manuals kept their old look after the site was redesigned.
+
+            Paths are root-absolute because bookdown output is copied through
+            Jekyll verbatim and never sees Liquid. A fork published under a
+            path prefix rewrites them with _bin/prefix-generated-paths.js.
+        -->
+        <link rel="stylesheet" href="/css/broadsheet.css">
+        <link rel="stylesheet" href="/css/aura-modern.css">
+
+        <!-- Syntax highlighting for the code samples. The theme paints its own
+             background, which css/aura-modern.css neutralises so the block
+             keeps the design's own surface colour. -->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/magula.min.css">
-        <link rel="stylesheet" href="/css/spacelab.css">
-        <link rel="stylesheet" href="/css/aura.css">
-        <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
-
-        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-        <script src="/js/vendor/jquery-1.9.1.min.js"></script>
-        <script src="/js/vendor/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-        <script src="/js/plugins.js"></script>
-
     </head>
 
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+    <body class="modern">
 
-        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="/">Aura for PHP</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li><a href="/about">About</a></li>
-                            <li class="active"><a href="/packages">Packages</a></li>
-                            <li><a href="/framework">Framework</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/community">Community</a></li>
-                            <li><a href="/contributing">Contributing</a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
+        <header class="site-header">
+            <div class="rule-thick"></div>
+            <div class="site-header-inner">
+                <a href="/"><img class="site-logo" src="/img/aura-logo-black.png" alt="Aura for PHP"></a>
+                <p class="site-dateline">Est. 2011 &middot; MIT licence &middot; Composer only</p>
+                <nav class="site-nav">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/packages" class="active">Packages</a>
+                    <a href="/framework">Framework</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/community">Community</a>
+                    <a href="/contributing">Contributing</a>
+                </nav>
             </div>
-        </div>
+            <div class="rule-thin"></div>
+        </header>
 
-        <div class="container">
+        <article class="band page docs">
+            <div class="page-body">
 
-            <script>hljs.initHighlightingOnLoad();</script>
-            
+                                <!-- The manual's own contents. This is what the pages were
+                     missing: without it a chapter had only the prev/next row
+                     for navigation, and the width beside the copy read as
+                     empty rather than as a column. -->
+                <nav class="docs-sidebar" aria-label="Manual contents">
+                    <p class="rail-label">Aura.Html 6.x</p>
+                    <ul class="docs-sidebar-list">
+                                                <li>
+                            <a href="/packages/6.x/Html/getting-started.html">1.1.1. Getting Started</a>
+                        </li>
+                                                <li>
+                            <a href="/packages/6.x/Html/tag-helpers.html">1.1.2. Aura.Html Tag Helpers</a>
+                        </li>
+                                                <li class="is-current">
+                            <a href="/packages/6.x/Html/form-helpers.html" aria-current="page">1.1.3. Aura.Html Form Helpers</a>
+                        </li>
+                                            </ul>
+                </nav>
+                
+                <!-- bookdown's `core` renders the nav header, the page's own
+                     h1, the body, and the nav footer as one block. -->
+                <div class="prose">
+                    
 <nav class="navheader">
     <table>
         <tr>
@@ -649,29 +667,38 @@ echo $helper-&gt;input(array(
         </tr>
     </table>
 </nav>
+                </div>
 
-            <hr />
+            </div>
+        </article>
 
-            <footer>
-                <p>&copy; 2011-2026, Aura for PHP
-                    <script type="text/javascript">
-                        var sc_project=9117595;
-                        var sc_invisible=0;
-                        var sc_security="b58cd28d";
-                        var scJsHost = (("https:" == document.location.protocol) ? "https://secure." : "http://www.");
-                        document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+ "statcounter.com/counter/counter.js'></"+"script>");
-                    </script>
-                    <noscript><div class="statcounter"><a
-                        title="site stats"
-                        href="http://statcounter.com/free-web-stats/"
-                        target="_blank"><img class="statcounter"
-                        src="http://c.statcounter.com/9117595/0/b58cd28d/0/"
-                        alt="site stats"
-                    ></a></div></noscript>
-                </p>
-            </footer>
+        <footer class="site-footer">
+            <p class="footer-line">Take only the piece you need.</p>
+            <div class="rule-thick" style="margin-bottom:14px"></div>
+            <div class="footer-meta">
+                <p>&copy; 2011&ndash;2026 Aura for PHP</p>
+                <p>Index compiled from packages.json</p>
+                <p><a href="https://github.com/auraphp">github.com/auraphp</a></p>
+            </div>
+            <script type="text/javascript">
+                var sc_project=9117595;
+                var sc_invisible=1;
+                var sc_security="b58cd28d";
+                var scJsHost = (("https:" == document.location.protocol) ? "https://secure." : "http://www.");
+                document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+ "statcounter.com/counter/counter.js'></"+"script>");
+            </script>
+            <noscript><div class="statcounter"><a
+                title="site stats"
+                href="http://statcounter.com/free-web-stats/"
+                target="_blank"><img class="statcounter"
+                src="http://c.statcounter.com/9117595/0/b58cd28d/0/"
+                alt="site stats"
+            ></a></div></noscript>
+        </footer>
 
-        </div>
+        <!-- No page-toc.js here: the sidebar is this page's navigation, and a
+             second contents list on the right would be one too many. -->
+        <script>hljs.initHighlightingOnLoad();</script>
 
     </body>
 </html>

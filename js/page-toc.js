@@ -18,7 +18,18 @@
     var list = document.getElementById('rail-list');
     var prose = document.querySelector('.prose');
 
+    /* Without a rail the copy would keep the two-column measure and sit hard
+       left. Marking the container lets the stylesheet give the width back —
+       the same treatment a page gets when it opts out with `rail: false`. */
+    function solo() {
+        var body = prose && prose.closest ? prose.closest('.page-body') : null;
+        if (body) {
+            body.classList.add('page-body-solo');
+        }
+    }
+
     if (!rail || !list || !prose) {
+        solo();
         return;
     }
 
@@ -29,6 +40,7 @@
     var topLevel = headings.filter(function (h) { return h.tagName === 'H2'; });
 
     if (topLevel.length < MIN_SECTIONS) {
+        solo();
         return;
     }
 

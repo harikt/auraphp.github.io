@@ -804,6 +804,164 @@ body.modern {
     height: auto;
 }
 
+/* ------------------------------------------------------------- manual pages */
+
+/* Reference material rather than continuous prose: it is scanned, and it
+   carries code blocks and tables that want room. So a manual runs wider than
+   an article page on both counts — a wider page box, and a longer measure
+   inside it. Scoped to .docs; About and Contributing keep their proportions. */
+.docs {
+    --page-max: 1280px;
+}
+
+.docs .prose > * {
+    max-width: 104ch;
+}
+
+/* The manual's contents, to the left of the copy. Sticky, so it stays with you
+   through a long chapter. */
+.docs-sidebar {
+    flex: 0 0 27ch;
+    position: sticky;
+    top: 28px;
+    order: -1;
+    padding-top: 34px;
+    min-width: 0;
+}
+
+.docs-sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-neutral-400);
+}
+
+.docs-sidebar-list li {
+    margin: 0;
+}
+
+.docs-sidebar-list a {
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+    line-height: 1.35;
+    text-decoration: none;
+    color: var(--color-neutral-900);
+    border-bottom: 1px solid var(--color-neutral-300);
+}
+
+.docs-sidebar-list a:hover {
+    color: var(--color-accent-800);
+}
+
+.docs-sidebar-list .is-current a {
+    color: var(--color-text);
+}
+
+.docs-sidebar-list .is-current a::before {
+    content: "\2192\00a0";
+    color: var(--color-accent-2-700);
+}
+
+/* Bookdown output: the page's own <h1> comes from the generator rather than
+   the layout, so it is styled here instead of as .page-title. */
+.docs .prose h1 {
+    margin: 0 0 0.6em;
+    font-size: clamp(34px, 4.4vw, 58px);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.docs .prose {
+    padding-top: 34px;
+}
+
+/* The prev / parent / next rail is navigation, not copy: it spans the page so
+   its three cells actually reach left, centre and right. Without this the
+   solo-page rule caps it at the reading measure and the row bunches up on the
+   left with the page's spare width beside it. */
+.docs .prose > nav.navheader,
+.docs .prose > nav.navfooter {
+    max-width: none;
+}
+
+/* Prev / parent / next, which bookdown emits as a table. Stripped back to a
+   rule and three cells — the system has no use for table chrome here. */
+.docs nav.navheader,
+.docs nav.navfooter {
+    margin: 0 0 1.6em;
+    font-size: 15px;
+}
+
+.docs nav.navfooter {
+    margin: 2.6em 0 0;
+}
+
+.docs nav table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.docs nav td,
+.docs nav th {
+    border: 0;
+    padding: 8px 12px 8px 0;
+    vertical-align: top;
+    font-weight: 400;
+    text-align: left;
+}
+
+/* The current page's own title, printed above the nav row. */
+.docs nav th.curr {
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-neutral-800);
+    padding-bottom: 10px;
+}
+
+.docs nav.navheader table {
+    border-bottom: 1px solid var(--color-neutral-400);
+}
+
+.docs nav.navfooter table {
+    border-top: 1px solid var(--color-neutral-400);
+}
+
+.docs nav td.prev { width: 34%; }
+.docs nav td.parent { width: 32%; text-align: center; color: var(--color-neutral-800); }
+.docs nav td.next { width: 34%; text-align: right; }
+
+/* The contents tree on a manual's index page: nested <dl>, one level per
+   depth. Indent carries the hierarchy; no bullets, no rules. */
+.docs .prose dl {
+    margin: 0 0 1.2em;
+}
+
+.docs .prose dt {
+    margin: 0 0 0.45em;
+    line-height: 1.4;
+}
+
+.docs .prose dd {
+    margin: 0 0 0.9em 1.6em;
+}
+
+.docs .prose dd dt {
+    font-size: 0.96em;
+}
+
+/* highlight.js paints its own ground on .hljs; let the design's surface show
+   through so a code block matches every other one on the site. */
+.prose pre code.hljs,
+.prose pre .hljs {
+    background: none;
+    padding: 0;
+}
+
 /* ------------------------------------------------------ blog posts and lists */
 
 .post-tags {
@@ -1022,7 +1180,8 @@ body.modern {
         gap: 0;
     }
 
-    .page-rail {
+    .page-rail,
+    .docs-sidebar {
         position: static;
         order: -1;
         flex: 0 0 auto;
