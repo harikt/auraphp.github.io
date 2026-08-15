@@ -1,0 +1,65 @@
+# Build and deploy the site with GitHub Actions instead of the legacy Pages
+# builder.
+#
+# The legacy builder is a shared queue: builds here regularly sat in
+# "building" for 30-40 minutes, which had nothing to do with the site itself.
+# This runs on our own runner and finishes in well under a minute.
+#
+# It also frees the site from the 2016-era `github-pages` gem pin that the
+# legacy builder implied, and which no longer installs on a current Ruby.
+#
+# Pages must be told to use this workflow rather than the legacy builder:
+#   gh api -X PUT repos/OWNER/REPO/pages -f build_type=workflow
+name: Deploy site
+
+on:
+  push:
+    # master is the production branch; preview is the project-page build on a
+    # fork. Whichever branch a given repo publishes, this covers it.
+    branches: [master, preview]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it — a half-applied
+# deploy is worse than a slightly stale one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - uses: actions/configure-pages@v5
+
+      # baseurl is deliberately NOT passed here: it is set in _config.yml, so
+      # production and the project-page preview each carry their own value and
+      # a build cannot silently disagree with the branch it came from.
+      - run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
