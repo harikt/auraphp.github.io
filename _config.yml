@@ -8,7 +8,7 @@ relative_permalinks: false
 # published as a GitHub project page sets this to its path prefix (e.g.
 # "/auraphp.github.io") on its own branch; every asset and internal link in the
 # modern layouts is written as {{ site.baseurl }}/... so both cases work.
-baseurl: ""
+baseurl: "/auraphp.github.io"
 
 # Setting `exclude` replaces Jekyll's defaults rather than adding to them, so
 # the vendor/ and Gemfile entries below have to be restated: with bundler
