@@ -5,9 +5,17 @@
   {% if site.JB.setup.provider == "custom" %}
     {% include custom/setup %}
   {% else %}
-    {% if site.safe and site.JB.BASE_PATH and site.JB.BASE_PATH != '' %}
-      {% assign BASE_PATH = site.JB.BASE_PATH %}
-      {% assign HOME_PATH = site.JB.BASE_PATH %}
+    {% comment %}
+      BASE_PATH comes from site.baseurl, not from site.JB.BASE_PATH. JB only
+      read its own setting when site.safe was true, which is not how the site
+      is built any more — so every link the JB includes generate
+      (posts_collate, pagination, tags_line and the rest) came out unprefixed
+      while everything using site.baseurl was correct. One variable now drives
+      both. Empty in production, so nothing changes there.
+    {% endcomment %}
+    {% if site.baseurl and site.baseurl != '' %}
+      {% assign BASE_PATH = site.baseurl %}
+      {% assign HOME_PATH = site.baseurl %}
     {% else %}
       {% assign BASE_PATH = nil %}
       {% assign HOME_PATH = "/" %}
