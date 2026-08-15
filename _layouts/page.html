@@ -1,0 +1,34 @@
+---
+layout: modern
+---
+<article class="band page">
+
+    <header class="page-head">
+        {% if page.kicker %}<p class="kicker">{{ page.kicker }}</p>{% endif %}
+        <h1 class="page-title">{{ page.heading | default: page.title }}</h1>
+        {% if page.standfirst %}<p class="standfirst">{{ page.standfirst }}</p>{% endif %}
+    </header>
+
+    <div class="rule-thin"></div>
+
+    <div class="page-body{% if page.rail == false %} page-body-solo{% endif %}">
+
+        <div class="prose">
+            {{ content }}
+        </div>
+
+        {% if page.rail != false %}
+        <!-- Filled by page-toc.js from the headings above, and left hidden when
+             the page has too few sections for a contents list to earn its
+             place. Set `rail: false` in front matter to opt out entirely. -->
+        <aside class="page-rail" id="page-rail" hidden>
+            <p class="rail-label">On this page</p>
+            <ul class="rail-list" id="rail-list"></ul>
+        </aside>
+        {% endif %}
+
+    </div>
+
+</article>
+
+{% if page.rail != false %}<script src="{{ site.baseurl }}/js/page-toc.js"></script>{% endif %}

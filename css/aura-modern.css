@@ -1,0 +1,1096 @@
+/*
+ * Aura landing page — page-level styles on top of css/broadsheet.css.
+ *
+ * The design ships as a Claude Design component with inline styles and
+ * `style-hover` attributes; that attribute is part of the DC runtime and has
+ * no meaning in a browser, so every hover/focus state it described lives here
+ * as real CSS. The palette below is the blue overprint the design set on its
+ * root element, overriding Broadsheet's default warm-paper tokens.
+ */
+
+.modern {
+    --color-bg: #eaf3fa;
+    --color-text: #12242f;
+    --color-surface: #dfecf6;
+    --color-divider: #b9d0e0;
+    --color-neutral-200: #dcebf6;
+    --color-neutral-300: #c6dcea;
+    --color-neutral-400: #a6c3d7;
+    --color-neutral-500: #7fa3bb;
+    --color-neutral-600: #5c8199;
+    --color-neutral-700: #456479;
+    --color-neutral-800: #2f4d61;
+    --color-neutral-900: #20394a;
+    --color-accent: #1f86b8;
+    --color-accent-100: #e4f2fb;
+    --color-accent-700: #0d5c85;
+    --color-accent-800: #093f5c;
+    --color-accent-2-100: #d9ecf9;
+    --color-accent-2-700: #0d5c85;
+
+    /* The horizontal breathing room every band shares. */
+    --gutter: 40px;
+
+    /* Broadsheet carries no mono token; the design set this stack inline. */
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+    /* How wide a content page is allowed to get. The one knob for the balance
+       between margin and measure — raise it for a fuller page, lower it for
+       more air. */
+    --page-max: 1180px;
+
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+    min-height: 100vh;
+    overflow-x: clip;
+}
+
+body.modern {
+    margin: 0;
+}
+
+.modern a {
+    color: var(--color-accent-700);
+    text-underline-offset: 4px;
+}
+
+.modern a:hover {
+    color: var(--color-accent-800);
+}
+
+.modern ::selection {
+    background: var(--color-accent-2-100);
+}
+
+/* ---------------------------------------------------------------- furniture */
+
+/* The front-page rule pair: full-strength ink, thick over thin. */
+.rule-thick {
+    height: 7px;
+    background: var(--color-text);
+}
+
+.rule-thin {
+    height: 2px;
+    background: var(--color-text);
+}
+
+.band {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+}
+
+/* ------------------------------------------------------------------- header */
+
+.site-header {
+    padding: 18px var(--gutter) 0;
+}
+
+.site-header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 40px;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 12px 0 10px;
+}
+
+.site-logo {
+    height: 38px;
+    width: auto;
+}
+
+.site-dateline {
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-neutral-800);
+}
+
+.site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    font-size: 15px;
+}
+
+.site-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-neutral-400);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    color: var(--color-text);
+    border-bottom-color: var(--color-accent);
+}
+
+.site-nav a.active {
+    border-bottom-color: var(--color-text);
+    border-bottom-width: 2px;
+}
+
+/* --------------------------------------------------------------------- hero */
+
+.hero {
+    padding: 70px var(--gutter) 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: 60px;
+    align-items: end;
+}
+
+.kicker {
+    margin: 0 0 26px;
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-accent-2-700);
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(56px, 8.4vw, 148px);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.hero h1 em {
+    font-weight: 400;
+}
+
+.hero-aside {
+    padding-bottom: 14px;
+}
+
+.hero-aside p {
+    margin: 0 0 22px;
+    font-size: 21px;
+    line-height: 1.45;
+    text-wrap: pretty;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+/* `.modern a` above is (0,1,1) and would otherwise win over a bare `.btn-ink`,
+   painting the label accent-blue on the near-black fill — so the button's own
+   colours have to be set at link specificity. */
+.modern a.btn-ink {
+    display: inline-flex;
+    align-items: center;
+    height: 52px;
+    padding: 0 26px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 2px;
+}
+
+.modern a.btn-ink:hover,
+.modern a.btn-ink:focus-visible {
+    background: var(--color-accent-800);
+    color: var(--color-bg);
+}
+
+.hero-actions .plain {
+    font-size: 17px;
+}
+
+/* -------------------------------------------------------------------- stats */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px;
+    align-items: start;
+    border-top: 1px solid var(--color-neutral-400);
+    padding-top: 26px;
+}
+
+/* The plate numeral, at the design's default treatment: process plates in the
+   muted blue ink set, 104px. `.cmyk-num` itself lives in broadsheet.css and
+   needs no script — only the .cmyk *image* treatment needs print-plates.js,
+   and this page prints no photographs. */
+.stat-num {
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    font-size: 104px;
+    --color-accent: #0d5c85;
+    --color-accent-2: #2f8f9d;
+    --color-process-yellow: #8fc7e8;
+}
+
+/* Broadsheet gives `.cmyk-head .plate` pointer-events/user-select:none so a
+   headline selects once rather than four times, but omits it on `.cmyk-num` —
+   so selecting or copying a figure yields "0000" instead of "0". The plates are
+   aria-hidden repeats; nothing should be able to grab them. */
+.cmyk-num .plate {
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.stat-note {
+    margin: 14px 0 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-neutral-900);
+}
+
+.stat-quote {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.5;
+    font-style: italic;
+    text-wrap: pretty;
+}
+
+.stat-cite {
+    margin: 12px 0 0;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-neutral-800);
+}
+
+/* -------------------------------------------------------------------- index */
+
+.index {
+    padding-top: 96px;
+}
+
+.index-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 40px;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 26px;
+}
+
+.section-title {
+    margin: 0;
+    font-size: clamp(34px, 4.4vw, 64px);
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+}
+
+.series-filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.series-btn {
+    height: 40px;
+    padding: 0 16px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 15px;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-neutral-400);
+}
+
+.series-btn:hover {
+    border-color: var(--color-accent);
+}
+
+.series-btn[aria-pressed="true"] {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+}
+
+.index-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+}
+
+.pkg-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pkg-row {
+    display: flex;
+    align-items: baseline;
+    gap: 22px;
+    width: 100%;
+    padding: 16px 8px;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-neutral-400);
+    border-radius: 0;
+}
+
+.pkg-row[aria-current="true"] {
+    background: var(--color-accent-2-100);
+}
+
+.pkg-num {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--color-neutral-700);
+    width: 38px;
+    flex: none;
+    text-align: right;
+}
+
+.pkg-name {
+    font-size: clamp(22px, 2.4vw, 34px);
+    letter-spacing: -0.02em;
+    flex: 1 1 auto;
+}
+
+.pkg-meta {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: var(--color-neutral-800);
+    flex: none;
+}
+
+/* An unreleased branch is listed, but never dressed as a release. */
+.pkg-dev {
+    color: var(--color-accent-2-700);
+    letter-spacing: 0.12em;
+}
+
+.pkg-mark {
+    flex: none;
+    font-size: 20px;
+    color: var(--color-accent-2-700);
+    opacity: 0;
+    transform: translateX(-6px);
+}
+
+.pkg-row[aria-current="true"] .pkg-mark {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.pkg-detail {
+    position: sticky;
+    top: 28px;
+    padding: 34px 0 0;
+}
+
+.detail-kicker {
+    margin: 0 0 10px;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    color: var(--color-accent-2-700);
+}
+
+.detail-name {
+    margin: 0 0 16px;
+    font-size: clamp(30px, 3.4vw, 46px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.detail-description {
+    margin: 0 0 22px;
+    font-size: 19px;
+    line-height: 1.5;
+    text-wrap: pretty;
+}
+
+.detail-description code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    margin: 0 0 8px;
+    padding: 14px 16px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--color-text);
+    background: var(--color-neutral-200);
+    border: 0;
+    border-left: 3px solid var(--color-accent-2);
+}
+
+.copy-btn:hover {
+    background: var(--color-accent-100);
+}
+
+.copy-btn[data-copied="true"] {
+    border-left-color: var(--color-accent-700);
+}
+
+.copy-cmd {
+    overflow-wrap: anywhere;
+}
+
+.copy-label {
+    flex: none;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    color: var(--color-accent-700);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.copy-note {
+    margin: 0 0 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-accent-2-700);
+}
+
+.detail-pin {
+    margin: 0 0 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-neutral-800);
+}
+
+.detail-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 26px;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.index-loading {
+    padding: 40px 8px;
+    font-size: 19px;
+    color: var(--color-neutral-800);
+}
+
+/* ----------------------------------------------------------------- specimen */
+
+.specimen {
+    padding-top: 110px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 60px;
+    align-items: start;
+}
+
+.specimen-lede {
+    margin: 0 0 18px;
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 44ch;
+    text-wrap: pretty;
+}
+
+.specimen-note {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-neutral-900);
+    max-width: 46ch;
+}
+
+.specimen pre {
+    margin: 0;
+    padding: 30px;
+    background: var(--color-neutral-200);
+    border-radius: 2px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+/* -------------------------------------------------------------------- notes */
+
+.notes {
+    padding-top: 120px;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 46px 56px;
+}
+
+.notes h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+}
+
+.notes p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-neutral-900);
+    text-wrap: pretty;
+}
+
+/* -------------------------------------------------- content pages and prose */
+
+/* A readable measure is ~650px and the rail wants ~290px, so on a wide screen
+   there is always slack. Capping the article and centring it splits that slack
+   into two quiet margins instead of banking it all into one gap between the
+   copy and the rail. Title, rule and body all share the cap, so the page has
+   one edge rather than three. */
+.page {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    max-width: calc(var(--page-max) + 2 * var(--gutter));
+    margin-inline: auto;
+}
+
+.page-head {
+    margin-bottom: 26px;
+}
+
+.page-title {
+    margin: 0;
+    font-size: clamp(44px, 6.5vw, 96px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+    text-wrap: balance;
+}
+
+.standfirst {
+    margin: 22px 0 0;
+    font-size: 21px;
+    line-height: 1.45;
+    max-width: 52ch;
+    color: var(--color-neutral-900);
+    text-wrap: pretty;
+}
+
+/* Flush-left copy with the contents rail in the right-hand space, so the
+   asymmetry the system asks for reads as composed rather than as a column
+   that ran out. Pages with too few sections drop the rail (see page-toc.js)
+   and the grid collapses to the single measure on its own. */
+/* Flex rather than grid so the rail's column does not survive the rail: a page
+   that opts out with `rail: false`, or whose rail page-toc.js leaves hidden,
+   gets the full width back instead of 30ch of dead space and a stray gap. */
+.page-body {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+.page-body .prose {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* With no rail to balance against, a capped column would sit hard left inside
+   the centred article, leaving a thin margin one side and a wide one the
+   other. So on a solo page the prose spans the full width and the measure
+   moves down onto the text elements, each centred. Anything that genuinely
+   wants the width — a grid, a wide table — takes `.full` and gets it. */
+.page-body-solo .prose {
+    max-width: none;
+}
+
+.page-body-solo .prose > * {
+    max-width: 84ch;
+    margin-inline: auto;
+}
+
+.page-body-solo .prose > .full {
+    max-width: none;
+}
+
+/* Body copy sets to a reading measure, per the system's direction: no boxes,
+   no rules between sections — the serif scale does the organising. */
+.prose {
+    padding-top: 40px;
+    /* Sized so the copy nearly fills the page beside the rail, rather than
+       stopping short and leaving a gap; the cap only bites once the layout has
+       collapsed to a single column on a tablet. */
+    max-width: 84ch;
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+/* ------------------------------------------------------------ contents rail */
+
+.page-rail {
+    position: sticky;
+    top: 28px;
+    padding-top: 46px;
+    flex: 0 0 28ch;
+}
+
+.rail-label {
+    margin: 0 0 12px;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-neutral-800);
+}
+
+.rail-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-neutral-400);
+}
+
+.rail-list li {
+    margin: 0;
+}
+
+.rail-list a {
+    display: block;
+    padding: 8px 0;
+    font-size: 16px;
+    line-height: 1.35;
+    text-decoration: none;
+    color: var(--color-neutral-900);
+    border-bottom: 1px solid var(--color-neutral-300);
+}
+
+/* Sub-sections sit in, and lighter, so the h2s still read as the spine. */
+.rail-sub a {
+    padding-left: 16px;
+    font-size: 15px;
+    color: var(--color-neutral-700);
+}
+
+.rail-list a:hover {
+    color: var(--color-accent-800);
+}
+
+.rail-list a[aria-current="true"] {
+    color: var(--color-text);
+}
+
+/* The reading position, marked in the second spot colour. */
+.rail-list a[aria-current="true"]::before {
+    content: "\2192\00a0";
+    color: var(--color-accent-2-700);
+}
+
+.prose > :first-child {
+    margin-top: 0;
+}
+
+.prose p {
+    margin: 0 0 1.15em;
+    text-wrap: pretty;
+}
+
+.prose h2 {
+    margin: 2em 0 0.5em;
+    font-size: clamp(28px, 3.2vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.prose h3 {
+    margin: 1.8em 0 0.45em;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+}
+
+.prose h4 {
+    margin: 1.6em 0 0.4em;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+}
+
+.prose ul,
+.prose ol {
+    margin: 0 0 1.15em;
+    padding-left: 1.4em;
+}
+
+.prose li {
+    margin-bottom: 0.4em;
+}
+
+/* Nested ordered lists carry their own counter style so a long procedure stays
+   readable — contributing.html goes three deep. */
+.prose ol { list-style: decimal; }
+.prose ol ol { list-style: lower-alpha; }
+.prose ol ol ol { list-style: lower-roman; }
+
+.prose li > p:last-child {
+    margin-bottom: 0.4em;
+}
+
+.prose code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--color-neutral-200);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+}
+
+.prose pre {
+    margin: 0 0 1.3em;
+    padding: 20px 22px;
+    background: var(--color-neutral-200);
+    border-radius: 2px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.prose pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+}
+
+.prose blockquote {
+    margin: 0 0 1.3em;
+    padding-left: 20px;
+    border-left: 2px solid var(--color-neutral-400);
+    font-style: italic;
+    color: var(--color-neutral-900);
+}
+
+.prose hr {
+    border: 0;
+    height: 1px;
+    background: var(--color-neutral-400);
+    margin: 2.4em 0;
+}
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 1.3em;
+    font-size: 16px;
+}
+
+.prose th,
+.prose td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--color-neutral-300);
+}
+
+.prose img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ------------------------------------------------------ blog posts and lists */
+
+.post-tags {
+    margin: 14px 0 0;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-neutral-800);
+}
+
+.post-tags a {
+    color: var(--color-neutral-800);
+}
+
+/* The blog index groups by year and month; the collate include emits bare
+   h2/h3/ul, so the tightening happens here rather than in the markup. */
+#posts-collate h2 {
+    margin-top: 1.6em;
+    font-size: 30px;
+}
+
+#posts-collate h3 {
+    margin: 1.2em 0 0.3em;
+    font-size: 19px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-neutral-800);
+    font-weight: 400;
+}
+
+#posts-collate ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#posts-collate li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--color-neutral-300);
+}
+
+#posts-collate li span {
+    flex: none;
+    width: 11em;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: var(--color-neutral-700);
+}
+
+/* The tag/category chips on the blog taxonomy pages. */
+.tag_box {
+    list-style: none;
+    margin: 0 0 1.6em;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+}
+
+.tag_box li {
+    margin: 0;
+}
+
+.tag_box a {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--color-text);
+    border: 1px solid var(--color-neutral-400);
+    border-radius: 2px;
+}
+
+.tag_box a:hover {
+    border-color: var(--color-accent);
+    background: var(--color-accent-100);
+}
+
+/* JB/pagination emits Bootstrap's markup; give it the system's own look. */
+.pagination {
+    margin: 2.4em 0 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-neutral-400);
+}
+
+.pagination ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* --------------------------------------------------------- contributor list */
+
+.contributors-note {
+    margin: 0 0 24px;
+    font-size: 18px;
+}
+
+/* Sits in the reading column like everything else. It used to break out to
+   the viewport width, which overflowed the capped article and slid under the
+   sticky rail; a denser track keeps it a grid at this width instead. */
+.contributors {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px 20px;
+}
+
+.contributor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.contributor img {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    border-radius: 2px;
+    background: var(--color-neutral-200);
+}
+
+.contributor a {
+    overflow-wrap: anywhere;
+}
+
+/* ------------------------------------------------------------------- footer */
+
+.site-footer {
+    padding: 110px var(--gutter) 46px;
+}
+
+.footer-line {
+    margin: 0 0 30px;
+    font-size: clamp(40px, 7vw, 116px);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+.footer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 40px;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--color-neutral-900);
+}
+
+.footer-meta p {
+    margin: 0;
+}
+
+/* --------------------------------------------------------------- responsive */
+
+/* The design is drawn at 1440px and its grids are hard column counts; below
+   the breakpoints they collapse in reading order. */
+
+@media (max-width: 1080px) {
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 40px;
+    }
+
+    .stat-num {
+        font-size: 84px;
+    }
+}
+
+@media (max-width: 900px) {
+    .modern {
+        --gutter: 24px;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        padding-top: 48px;
+    }
+
+    .hero-aside {
+        padding-bottom: 0;
+    }
+
+    .index-body {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    /* Detail-first on narrow screens: sticky would pin it off-screen. */
+    .pkg-detail {
+        position: static;
+        order: -1;
+        padding-top: 24px;
+    }
+
+    .specimen {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        padding-top: 80px;
+    }
+
+    /* Contents above the copy on narrow screens — sticky beside it would pin
+       the rail off-screen, and below it nobody would ever see it. */
+    .page-body {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .page-rail {
+        position: static;
+        order: -1;
+        flex: 0 0 auto;
+        align-self: stretch;
+        padding-top: 30px;
+    }
+
+    .prose {
+        padding-top: 30px;
+    }
+
+    .index {
+        padding-top: 64px;
+    }
+
+    .notes {
+        padding-top: 80px;
+    }
+
+    .site-footer {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 620px) {
+    .stats {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .stat-num {
+        font-size: 72px;
+    }
+
+    .site-dateline {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .pkg-row {
+        flex-wrap: wrap;
+        gap: 6px 16px;
+    }
+
+    .pkg-name {
+        flex: 1 1 100%;
+        order: 2;
+    }
+
+    .pkg-meta {
+        order: 3;
+    }
+
+    .pkg-mark {
+        order: 4;
+    }
+
+    .specimen pre {
+        padding: 18px;
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modern *,
+    .modern *::before,
+    .modern *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

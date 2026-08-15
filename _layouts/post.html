@@ -1,26 +1,30 @@
 ---
-layout: site
+layout: modern
 active: blog
 ---
+<article class="band page">
 
-<div class="page-header">
-    <h1>{{ page.title }}</h1>
-    <p>
-        on <span class="date">{{ page.date | date: "%d %B %Y" }}</span>
-        by <span class="author">{{ page.author }}</span>
+    <header class="page-head">
+        <p class="kicker">
+            <span class="date">{{ page.date | date: "%d %B %Y" }}</span>{% if page.author %}
+            &middot; <span class="author">{{ page.author }}</span>{% endif %}
+        </p>
+        <h1 class="page-title">{{ page.title }}</h1>
         {% unless page.tags == empty %}
-        in <span class="tags">
+        <p class="post-tags">
             {% assign tags_line = page.tags %}
             {% include JB/tags_line %}
-        </span></p>
+        </p>
         {% endunless %}
-    </p>
-</div>
+    </header>
 
-<div class="row">
-    <div class="span10">
+    <div class="rule-thin"></div>
+
+    <div class="prose">
         {{ content }}
+
         {% include JB/pagination %}
         {% include JB/comments %}
     </div>
-</div>
+
+</article>

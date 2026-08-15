@@ -1,10 +1,9 @@
 ---
-layout: site
+layout: page
 active: framework
 title: Framework
+standfirst: Aura is primarily a collection of library packages, but we do provide frameworks built from those libraries.
 ---
-
-# Framework
 
 While Aura is primarily centered around its library packages, we do provide frameworks built from those libraries.
 
@@ -12,13 +11,13 @@ While Aura is primarily centered around its library packages, we do provide fram
 
 ### 2.x
 
-You can read the 2.x framework manual in [English](/framework/2.x/en) or [Japanese](/framework/2.x/ja).
+You can read the 2.x framework manual in [English]({{ site.baseurl }}/framework/2.x/en) or [Japanese]({{ site.baseurl }}/framework/2.x/ja).
 
 ### 1.x
 
 We recommend using the 2.x framework; the 1.x manual is retained for archival purposes.
 
-You can read the 1.x framework manual in [English](/framework/1.x/en) or [Japanese](/framework/1.x/ja). (It has been partially translated to [German](/framework/1.x/de) as well.)
+You can read the 1.x framework manual in [English]({{ site.baseurl }}/framework/1.x/en) or [Japanese]({{ site.baseurl }}/framework/1.x/ja). (It has been partially translated to [German]({{ site.baseurl }}/framework/1.x/de) as well.)
 
 ## Contributing
 
@@ -39,4 +38,4 @@ and the translated contents.
 
 The manuals are rendered with the help of [Jekyll](http://jekyllrb.com) and hosted on [github](https://github.com). You can install [Jekyll](http://jekyllrb.com) in your local system and see how it renders.
 
-If you have any questions feel free to ask [the Aura community](/community.html).
+If you have any questions feel free to ask [the Aura community]({{ site.baseurl }}/community.html).

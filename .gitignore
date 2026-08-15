@@ -1,2 +1,4 @@
 Output
 _site
+# Local Liquid-rendered previews (see scratchpad render_preview.py)
+_preview-*.html

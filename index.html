@@ -1,19 +1,131 @@
 ---
-layout: site
+layout: modern
 active: home
+description: Aura provides independent library packages for PHP. Each one is self-contained, has no dependencies on the others, and can be dropped into any codebase.
 ---
 
-<div class="hero-unit">
-    <div class="hero-logo">
-        <img src="img/aura-logo-black.png" width="240" height="240" />
-        <h3 id="adjectives"></h3>
-        <script src="/js/adjectives.js" type="text/javascript"></script>
-        <p><a class="btn btn-primary btn-large" href="/about">Learn more &raquo;</a></p>
+<section class="hero">
+    <div>
+        <p class="kicker">The library collection</p>
+        <h1>One purpose,<br>one package,<br><em>no strings.</em></h1>
     </div>
-</div>
+    <div class="hero-aside">
+        <p>Nothing here depends on anything else here. Require a single package and you get a single package &mdash; no kernel, no bootstrap, no framework arriving behind it.</p>
+        <div class="hero-actions">
+            <a class="btn-ink" href="#index">Read the index</a>
+            <a class="plain" href="{{ site.baseurl }}/about">What Aura is &raquo;</a>
+        </div>
+    </div>
+</section>
 
-<div class="row">
-    <div class="span12" id="packages">
-        <script src="/js/packages.js" type="text/javascript"></script>
+<section class="band stats">
+    <div>
+        <p class="cmyk-num stat-num">
+            <span class="paper" data-stat="packages">&mdash;</span>
+            <span class="plate plate-c" aria-hidden="true" data-stat="packages">&mdash;</span>
+            <span class="plate plate-m" aria-hidden="true" data-stat="packages">&mdash;</span>
+            <span class="plate plate-y" aria-hidden="true" data-stat="packages">&mdash;</span>
+        </p>
+        <p class="stat-note">packages in the current index, each documented on its own terms</p>
     </div>
-</div>
+    <div>
+        <p class="cmyk-num stat-num">
+            <span class="paper">0</span>
+            <span class="plate plate-c" aria-hidden="true">0</span>
+            <span class="plate plate-m" aria-hidden="true">0</span>
+            <span class="plate plate-y" aria-hidden="true">0</span>
+        </p>
+        <p class="stat-note">Aura implementations any library depends on &mdash; from 3.x a library may require an interface package, never another implementation</p>
+    </div>
+    <div>
+        <p class="cmyk-num stat-num">
+            <span class="paper" data-stat="series">&mdash;</span>
+            <span class="plate plate-c" aria-hidden="true" data-stat="series">&mdash;</span>
+            <span class="plate plate-m" aria-hidden="true" data-stat="series">&mdash;</span>
+            <span class="plate plate-y" aria-hidden="true" data-stat="series">&mdash;</span>
+        </p>
+        <p class="stat-note" data-stat="series-note">major series, all still reachable and documented</p>
+    </div>
+    <div>
+        <p class="stat-quote">&ldquo;Each library is self-contained and has only the things it needs for its core purpose.&rdquo;</p>
+        <p class="stat-cite">auraphp.com/about</p>
+    </div>
+</section>
+
+<section class="band index" id="index">
+    <div class="index-head">
+        <h2 class="section-title">The index</h2>
+        <div class="series-filter" id="series-filter"></div>
+    </div>
+    <div class="rule-thin"></div>
+
+    <div class="index-body">
+        <ol class="pkg-list" id="pkg-list">
+            <li class="index-loading">Loading the package index&hellip;</li>
+        </ol>
+
+        <aside class="pkg-detail" id="pkg-detail" hidden>
+            <p class="detail-kicker" id="detail-kicker"></p>
+            <h3 class="detail-name" id="detail-name"></h3>
+            <p class="detail-description" id="detail-description"></p>
+            <button type="button" class="copy-btn" id="copy-btn">
+                <span class="copy-cmd" id="copy-cmd"></span>
+                <span class="copy-label" aria-hidden="true" id="copy-label">Copy</span>
+            </button>
+            <p class="copy-note" aria-live="polite" id="copy-note"></p>
+            <p class="detail-pin" id="detail-pin"></p>
+            <div class="detail-links">
+                <a id="detail-docs" href="#">Documentation</a>
+                <a id="detail-releases" href="#">Releases</a>
+                <a id="detail-repo" href="#">Source</a>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<section class="band specimen" id="specimen">
+    <div>
+        <h2 class="section-title" style="margin-bottom:20px">Specimen</h2>
+        <p class="specimen-lede">Aura.Sql is PDO with the sharp edges filed off &mdash; the same object you already know, plus array binding, lazy connections and a profiler.</p>
+        <p class="specimen-note">Because it extends PDO, existing code that uses PDO keeps working unchanged.</p>
+    </div>
+    <pre><code>use Aura\Sql\ExtendedPdo;
+
+$pdo = new ExtendedPdo('sqlite::memory:');
+
+$posts = $pdo->fetchAll(
+    'SELECT * FROM posts WHERE id IN (:ids) AND status = :status',
+    [
+        'ids'    => [1, 2, 3],   // arrays bind as lists
+        'status' => 'published',
+    ]
+);
+
+foreach ($pdo->yieldAssoc('SELECT id, title FROM posts') as $id => $row) {
+    echo $id . ': ' . $row['title'] . PHP_EOL;
+}</code></pre>
+</section>
+
+<section class="band notes">
+    <div class="rule-thin" style="margin-bottom:34px"></div>
+    <div class="notes-grid">
+        <div>
+            <h3>Semver, held to</h3>
+            <p>A breaking change means a new major and a new documented series. Old series stay online.</p>
+        </div>
+        <div>
+            <h3>Interfaces, not implementations</h3>
+            <p>From 3.x a library may depend on an interface package &mdash; never on another implementation.</p>
+        </div>
+        <div>
+            <h3>Manuals, not API dumps</h3>
+            <p>Every package ships prose documentation written for the person installing it.</p>
+        </div>
+        <div>
+            <h3>Yours to fork</h3>
+            <p>MIT, on GitHub, with the <a href="{{ site.baseurl }}/contributing">contributing guide</a> in the open.</p>
+        </div>
+    </div>
+</section>
+
+<script src="{{ site.baseurl }}/js/index-modern.js"></script>

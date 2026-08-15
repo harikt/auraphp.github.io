@@ -1,24 +1,136 @@
 {
+    "7.x": {
+        "Session": {
+            "type": "library",
+            "version": "7.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Session",
+            "composer": "aura/session",
+            "docs": "https://github.com/auraphp/Aura.Session/tree/7.x",
+            "description": "Provides session management functionality, including lazy session starting, session segments, next-request-only (\"flash\") values, and CSRF tools."
+        }
+    },
     "6.x": {
-        "Sql": {
+        "Auth": {
+            "type": "library",
+            "version": "6.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Auth",
+            "composer": "aura/auth",
+            "docs": "https://github.com/auraphp/Aura.Auth/tree/6.x",
+            "description": "Provides a unified interface to authenticate a user with local or remote authentication systems."
+        },
+        "Filter": {
+            "type": "library",
+            "version": "6.0.0-beta1",
+            "github": "https://github.com/auraphp/Aura.Filter",
+            "composer": "aura/filter",
+            "docs": "https://github.com/auraphp/Aura.Filter/tree/6.x",
+            "description": "Filters to validate and sanitize objects and arrays."
+        },
+        "Filter_Interface": {
+            "type": "interface",
+            "version": "6.0.0-beta1",
+            "github": "https://github.com/auraphp/Aura.Filter_Interface",
+            "composer": "aura/filter-interface",
+            "description": "Interfaces and shared value objects for validation and sanitization libraries."
+        },
+        "Html": {
+            "type": "library",
+            "version": "6.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Html",
+            "composer": "aura/html",
+            "description": "Provides HTML escapers and helpers, including form input helpers."
+        },
+        "Input": {
+            "type": "library",
+            "version": "6.0.0-beta1",
+            "github": "https://github.com/auraphp/Aura.Input",
+            "composer": "aura/input",
+            "docs": "https://github.com/auraphp/Aura.Input/tree/6.x",
+            "description": "This package contains tools to describe and filter user inputs from an HTML form, including sub-forms/sub-fieldsets, fieldset collections, an interface for injecting custom filter systems, and CSRF protection. Note that this package does not include output functionality, although the \"hints\" provided by the Form object can be used with any presentation system to generate an HTML form."
+        },
+        "Router": {
+            "type": "library",
+            "version": "6.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Router",
+            "composer": "aura/router",
+            "docs": "https://github.com/auraphp/Aura.Router/tree/6.x",
+            "description": "Powerful, flexible web routing for PSR-7 requests."
+        },
+        "Session": {
             "type": "library",
             "version": "6.0.0",
+            "github": "https://github.com/auraphp/Aura.Session",
+            "composer": "aura/session",
+            "docs": "https://github.com/auraphp/Aura.Session/tree/6.x",
+            "description": "Provides session management functionality, including lazy session starting, session segments, next-request-only (\"flash\") values, and CSRF tools."
+        },
+        "Session_Interface": {
+            "type": "interface",
+            "version": "6.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Session_Interface",
+            "composer": "aura/session-interface",
+            "description": "An interface package for session management libraries."
+        },
+        "Sql": {
+            "type": "library",
+            "version": "6.0.1",
             "github": "https://github.com/auraphp/Aura.Sql",
             "composer": "aura/sql",
             "description": "A PDO extension that provides lazy connections, array quoting, query profiling, value binding, and convenience methods for common fetch styles. Because it extends PDO, existing code that uses PDO can use this without any changes to the existing code."
         },
-        "Html": {
+        "SqlQuery": {
             "type": "library",
-            "version": "6.0.0",
-            "github": "https://github.com/auraphp/Aura.Html",
-            "composer": "aura/html",
-            "description": "Provides HTML escapers and helpers, including form input helpers."
+            "version": "6.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.SqlQuery",
+            "composer": "aura/sqlquery",
+            "docs": "https://github.com/auraphp/Aura.SqlQuery/tree/6.x",
+            "description": "Object-oriented query builders for MySQL, Postgres, SQLite, and SQLServer; can be used with any database connection library."
+        },
+        "View": {
+            "type": "library",
+            "version": "6.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.View",
+            "composer": "aura/view",
+            "docs": "https://github.com/auraphp/Aura.View/tree/6.x",
+            "description": "Provides an implementation of the TemplateView and TwoStepView patterns, with support for helpers and for closures as templates, using PHP itself as the templating language."
         }
     },
     "5.x": {
+        "Di": {
+            "type": "library",
+            "version": "5.0.9",
+            "github": "https://github.com/auraphp/Aura.Di",
+            "composer": "aura/di",
+            "docs": "https://github.com/auraphp/Aura.Di/tree/5.x",
+            "description": "A serializable dependency injection container with constructor and setter injection, interface and trait awareness, configuration inheritance, and much more."
+        },
+        "Filter": {
+            "type": "library",
+            "version": "5.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Filter",
+            "composer": "aura/filter",
+            "docs": "https://github.com/auraphp/Aura.Filter/tree/5.x",
+            "description": "Filters to validate and sanitize objects and arrays."
+        },
+        "Filter_Interface": {
+            "type": "interface",
+            "version": "5.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Filter_Interface",
+            "composer": "aura/filter-interface",
+            "description": "Interfaces and shared value objects for validation and sanitization libraries."
+        },
         "Sql": {
             "type": "library",
-            "version": "5.0.0",
+            "version": "5.0.3",
             "github": "https://github.com/auraphp/Aura.Sql",
             "composer": "aura/sql",
             "description": "A PDO extension that provides lazy connections, array quoting, query profiling, value binding, and convenience methods for common fetch styles. Because it extends PDO, existing code that uses PDO can use this without any changes to the existing code."
@@ -27,10 +139,26 @@
     "4.x": {
         "Accept": {
             "type": "library",
-            "version": "4.0.0",
+            "version": "4.0.1",
             "github": "https://github.com/auraphp/Aura.Accept",
-            "composer": "aura/accpet",
+            "composer": "aura/accept",
             "description": "Provides content-negotiation tools using `Accept*` headers."
+        },
+        "Auth": {
+            "type": "library",
+            "version": "4.0.3",
+            "github": "https://github.com/auraphp/Aura.Auth",
+            "composer": "aura/auth",
+            "docs": "https://github.com/auraphp/Aura.Auth/tree/4.x",
+            "description": "Provides a unified interface to authenticate a user with local or remote authentication systems."
+        },
+        "Cli": {
+            "type": "library",
+            "version": "4.0.0-alpha1",
+            "github": "https://github.com/auraphp/Aura.Cli",
+            "composer": "aura/cli",
+            "docs": "https://github.com/auraphp/Aura.Cli/tree/4.x",
+            "description": "Provides the equivalent of request (Context) and response (Stdio) classes for a command line environment, including Getopt support."
         },
         "Di": {
             "type": "library",
@@ -39,12 +167,64 @@
             "composer": "aura/di",
             "description": "A serializable dependency injection container with constructor and setter injection, interface and trait awareness, configuration inheritance, and much more."
         },
+        "Filter": {
+            "type": "library",
+            "version": "4.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Filter",
+            "composer": "aura/filter",
+            "docs": "https://github.com/auraphp/Aura.Filter/tree/4.x",
+            "description": "Filters to validate and sanitize objects and arrays."
+        },
+        "Filter_Interface": {
+            "type": "interface",
+            "version": "4.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Filter_Interface",
+            "composer": "aura/filter-interface",
+            "description": "Interfaces and shared value objects for validation and sanitization libraries."
+        },
+        "Input": {
+            "type": "library",
+            "version": "4.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Input",
+            "composer": "aura/input",
+            "docs": "https://github.com/auraphp/Aura.Input/tree/4.x",
+            "description": "This package contains tools to describe and filter user inputs from an HTML form, including sub-forms/sub-fieldsets, fieldset collections, an interface for injecting custom filter systems, and CSRF protection. Note that this package does not include output functionality, although the \"hints\" provided by the Form object can be used with any presentation system to generate an HTML form."
+        },
+        "Intl": {
+            "type": "library",
+            "version": "4.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Intl",
+            "composer": "aura/intl",
+            "docs": "https://github.com/auraphp/Aura.Intl/tree/4.x",
+            "description": "The Aura Intl package provides internationalization tools, specifically message translation."
+        },
         "Marshal": {
             "type": "library",
-            "version": "4.0.0",
+            "version": "4.0.4",
             "github": "https://github.com/auraphp/Aura.Marshal",
-            "composer": "aura/sql",
+            "composer": "aura/marshal",
             "description": "The Aura Marshal package is a data-object marshalling tool. It takes results from data sources and marshals those result sets into domain model objects of your own design, preserving data relationships along the way."
+        },
+        "Router": {
+            "type": "library",
+            "version": "4.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Router",
+            "composer": "aura/router",
+            "docs": "https://github.com/auraphp/Aura.Router/tree/4.x",
+            "description": "Powerful, flexible web routing for PSR-7 requests."
+        },
+        "Session": {
+            "type": "library",
+            "version": "4.0.0",
+            "github": "https://github.com/auraphp/Aura.Session",
+            "composer": "aura/session",
+            "docs": "https://github.com/auraphp/Aura.Session/tree/4.x",
+            "description": "Provides session management functionality, including lazy session starting, session segments, next-request-only (\"flash\") values, and CSRF tools."
         },
         "Sql": {
             "type": "library",
@@ -52,9 +232,36 @@
             "github": "https://github.com/auraphp/Aura.Sql",
             "composer": "aura/sql",
             "description": "A PDO extension that provides lazy connections, array quoting, query profiling, value binding, and convenience methods for common fetch styles. Because it extends PDO, existing code that uses PDO can use this without any changes to the existing code."
+        },
+        "SqlQuery": {
+            "type": "library",
+            "version": "4.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.SqlQuery",
+            "composer": "aura/sqlquery",
+            "docs": "https://github.com/auraphp/Aura.SqlQuery/tree/4.x",
+            "description": "Object-oriented query builders for MySQL, Postgres, SQLite, and SQLServer; can be used with any database connection library."
         }
     },
     "3.x": {
+        "Auth": {
+            "type": "library",
+            "version": "3.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Auth",
+            "composer": "aura/auth",
+            "docs": "https://github.com/auraphp/Aura.Auth/tree/3.x",
+            "description": "Provides a unified interface to authenticate a user with local or remote authentication systems."
+        },
+        "Cli": {
+            "type": "library",
+            "version": "3.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Cli",
+            "composer": "aura/cli",
+            "docs": "https://github.com/auraphp/Aura.Cli/tree/3.x",
+            "description": "Provides the equivalent of request (Context) and response (Stdio) classes for a command line environment, including Getopt support."
+        },
         "Di": {
             "type": "library",
             "version": "3.4.0",
@@ -62,16 +269,34 @@
             "composer": "aura/di",
             "description": "A serializable dependency injection container with constructor and setter injection, interface and trait awareness, configuration inheritance, and much more."
         },
+        "Filter": {
+            "type": "library",
+            "version": "3.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Filter",
+            "composer": "aura/filter",
+            "docs": "https://github.com/auraphp/Aura.Filter/tree/3.x",
+            "description": "Filters to validate and sanitize objects and arrays."
+        },
         "Filter_Interface": {
             "type": "interface",
-            "version": "3.0.0-alpha1",
+            "version": "3.0.0",
             "github": "https://github.com/auraphp/Aura.Filter_Interface",
             "composer": "aura/filter-interface",
             "description": "An interface package for validation and sanitizing library"
         },
+        "Input": {
+            "type": "library",
+            "version": "3.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Input",
+            "composer": "aura/input",
+            "docs": "https://github.com/auraphp/Aura.Input/tree/3.x",
+            "description": "This package contains tools to describe and filter user inputs from an HTML form, including sub-forms/sub-fieldsets, fieldset collections, an interface for injecting custom filter systems, and CSRF protection. Note that this package does not include output functionality, although the \"hints\" provided by the Form object can be used with any presentation system to generate an HTML form."
+        },
         "Intl": {
             "type": "library",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "github": "https://github.com/auraphp/Aura.Intl",
             "composer": "aura/intl",
             "description": "The Aura Intl package provides internationalization tools, specifically message translation."
@@ -92,17 +317,34 @@
         },
         "Router": {
             "type": "library",
-            "version": "3.1.0",
+            "version": "3.4.2",
             "github": "https://github.com/auraphp/Aura.Router",
             "composer": "aura/router",
             "description": "Powerful, flexible web routing for PSR-7 requests."
         },
+        "Session": {
+            "type": "library",
+            "version": "3.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Session",
+            "composer": "aura/session",
+            "docs": "https://github.com/auraphp/Aura.Session/tree/3.x",
+            "description": "Provides session management functionality, including lazy session starting, session segments, next-request-only (\"flash\") values, and CSRF tools."
+        },
         "Sql": {
             "type": "library",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "github": "https://github.com/auraphp/Aura.Sql",
             "composer": "aura/sql",
             "description": "A PDO extension that provides lazy connections, array quoting, query profiling, value binding, and convenience methods for common fetch styles. Because it extends PDO, existing code that uses PDO can use this without any changes to the existing code."
+        },
+        "SqlQuery": {
+            "type": "library",
+            "version": "3.0.0",
+            "github": "https://github.com/auraphp/Aura.SqlQuery",
+            "composer": "aura/sqlquery",
+            "docs": "https://github.com/auraphp/Aura.SqlQuery/tree/3.x",
+            "description": "Object-oriented query builders for MySQL, Postgres, SQLite, and SQLServer; can be used with any database connection library."
         }
     },
     "2.x": {
@@ -139,6 +381,7 @@
             "version": "2.0.4",
             "github": "https://github.com/auraphp/Aura.Cli_Kernel",
             "composer": "aura/cli-kernel",
+            "docs": "https://github.com/auraphp/Aura.Cli_Kernel/tree/2.x",
             "description": "The kernel files for an Aura CLI project."
         },
         "Cli_Project": {
@@ -146,11 +389,12 @@
             "version": "2.0.2",
             "github": "https://github.com/auraphp/Aura.Cli_Project",
             "composer": "aura/cli-project",
+            "docs": "https://github.com/auraphp/Aura.Cli_Project/tree/2.x",
             "description": "A minimal command-line framework built from Aura v2 packages"
         },
         "Di": {
             "type": "library",
-            "version": "2.2.4",
+            "version": "2.2.5",
             "github": "https://github.com/auraphp/Aura.Di",
             "composer": "aura/di",
             "description": "Provides a dependency injection container system with native support for constructor- and setter-based injection, lazy-loading of services, and inheritable configuration of setters and constructor params."
@@ -174,14 +418,24 @@
             "version": "2.0.1",
             "github": "https://github.com/auraphp/Aura.Framework_Project",
             "composer": "aura/framework-project",
+            "docs": "https://github.com/auraphp/Aura.Framework_Project/tree/2.x",
             "description": "A minimal web+cli framework built from Aura v2 packages"
         },
         "Html": {
             "type": "library",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "github": "https://github.com/auraphp/Aura.Html",
             "composer": "aura/html",
             "description": "Provides HTML escapers and helpers, including form input helpers."
+        },
+        "Http": {
+            "type": "library",
+            "version": "2.x-dev",
+            "dev": true,
+            "github": "https://github.com/auraphp/Aura.Http",
+            "composer": "aura/http",
+            "docs": "https://github.com/auraphp/Aura.Http/tree/2.x",
+            "description": "The Aura HTTP package provides objects to build and send HTTP requests and responses."
         },
         "Includer": {
             "type": "library",
@@ -192,9 +446,10 @@
         },
         "Project_Kernel": {
             "type": "kernel",
-            "version": "2.1.1",
+            "version": "2.2.0",
             "github": "https://github.com/auraphp/Aura.Project_Kernel",
             "composer": "aura/project-kernel",
+            "docs": "https://github.com/auraphp/Aura.Project_Kernel/tree/2.x",
             "description": "The shared kernel files for an Aura project."
         },
         "Router": {
@@ -220,7 +475,7 @@
         },
         "SqlQuery": {
             "type": "library",
-            "version": "2.7.1",
+            "version": "2.8.1",
             "github": "https://github.com/auraphp/Aura.SqlQuery",
             "composer": "aura/sqlquery",
             "description": "Object-oriented query builders for MySQL, Postgres, SQLite, and SQLServer; can be used with any database connection library."
@@ -232,16 +487,24 @@
             "composer": "aura/sqlschema",
             "description": "Provides facilities to read table names and table columns from a database using PDO."
         },
+        "Uri": {
+            "type": "library",
+            "version": "2.0.0",
+            "github": "https://github.com/auraphp/Aura.Uri",
+            "composer": "aura/uri",
+            "docs": "https://github.com/auraphp/Aura.Uri/tree/2.x",
+            "description": "The Aura Uri package provides tools to build and manipulate URL strings."
+        },
         "View": {
             "type": "library",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "github": "https://github.com/auraphp/Aura.View",
             "composer": "aura/view",
             "description": "Provides an implementation of the TemplateView and TwoStepView patterns, with support for helpers and for closures as templates, using PHP itself as the templating language."
         },
         "Web": {
             "type": "library",
-            "version": "2.1.0",
+            "version": "2.2.1",
             "github": "https://github.com/auraphp/Aura.Web",
             "composer": "aura/web",
             "description": "Provides web Request and Response objects for use by web controllers and actions. These are representations of the PHP web environment, not HTTP request and response objects proper."
@@ -251,6 +514,7 @@
             "version": "2.1.3",
             "github": "https://github.com/auraphp/Aura.Web_Kernel",
             "composer": "aura/web-kernel",
+            "docs": "https://github.com/auraphp/Aura.Web_Kernel/tree/2.x",
             "description": "The kernel files for an Aura web project."
         },
         "Web_Project": {
@@ -258,6 +522,7 @@
             "version": "2.0.2",
             "github": "https://github.com/auraphp/Aura.Web_Project",
             "composer": "aura/web-project",
+            "docs": "https://github.com/auraphp/Aura.Web_Project/tree/2.x",
             "description": "A minimal web framework built from Aura v2 packages"
         }
     },
@@ -301,7 +566,7 @@
             "type": "framework",
             "version": "1.0.1",
             "github": "https://github.com/auraphp/Aura.Framework_Demo",
-            "composer": "aura/framework_demo",
+            "composer": "aura/framework-demo",
             "description": "A \"hello world\" demo for the Aura framework and system."
         },
         "Http": {

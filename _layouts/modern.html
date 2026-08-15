@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <title>Aura for PHP{% if page.title %} : {{ page.title }}{% endif %}</title>
+        {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{{ site.baseurl }}/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#eaf3fa">
+
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="{{ site.baseurl }}/blog/atom.xml" />
+
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ site.baseurl }}/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ site.baseurl }}/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ site.baseurl }}/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ site.baseurl }}/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ site.baseurl }}/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ site.baseurl }}/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ site.baseurl }}/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ site.baseurl }}/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ site.baseurl }}/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon/favicon-16x16.png">
+        <link rel="manifest" href="{{ site.baseurl }}/favicon/manifest.json">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Broadsheet is the design system as shipped; aura-modern.css holds
+             the page styles and the hover states the DC `style-hover`
+             attribute stood in for. Neither file loads Bootstrap, so pages on
+             the `site` layout are untouched. -->
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/broadsheet.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/aura-modern.css">
+
+        <!-- Scripts cannot read Liquid, so the path prefix is handed to them
+             here. Empty in production; a project-page fork sets site.baseurl
+             and everything the scripts fetch or link follows. -->
+        <script>window.AURA_BASEURL = "{{ site.baseurl }}";</script>
+    </head>
+
+    <body class="modern">
+
+        <header class="site-header">
+            <div class="rule-thick"></div>
+            <div class="site-header-inner">
+                <a href="{{ site.baseurl }}/"><img class="site-logo" src="{{ site.baseurl }}/img/aura-logo-black.png" alt="Aura for PHP"></a>
+                <p class="site-dateline">Est. 2011 &middot; MIT licence &middot; Composer only</p>
+                <nav class="site-nav">
+                    <a href="{{ site.baseurl }}/"             {% if page.active == 'home'         %}class="active"{% endif %}>Home</a>
+                    <a href="{{ site.baseurl }}/about"        {% if page.active == 'about'        %}class="active"{% endif %}>About</a>
+                    <a href="{{ site.baseurl }}/packages"     {% if page.active == 'packages'     %}class="active"{% endif %}>Packages</a>
+                    <a href="{{ site.baseurl }}/framework"    {% if page.active == 'framework'    %}class="active"{% endif %}>Framework</a>
+                    <a href="{{ site.baseurl }}/blog"         {% if page.active == 'blog'         %}class="active"{% endif %}>Blog</a>
+                    <a href="{{ site.baseurl }}/community"    {% if page.active == 'community'    %}class="active"{% endif %}>Community</a>
+                    <a href="{{ site.baseurl }}/contributing" {% if page.active == 'contributing' %}class="active"{% endif %}>Contributing</a>
+                </nav>
+            </div>
+            <div class="rule-thin"></div>
+        </header>
+
+        {{ content }}
+
+        <footer class="site-footer">
+            <p class="footer-line">Take only the piece you need.</p>
+            <div class="rule-thick" style="margin-bottom:14px"></div>
+            <div class="footer-meta">
+                <p>&copy; 2011&ndash;{{ 'now' | date: "%Y" }} Aura for PHP</p>
+                <p>Index compiled from packages.json</p>
+                <p><a href="https://github.com/auraphp">github.com/auraphp</a></p>
+            </div>
+            <script type="text/javascript">
+                var sc_project=9117595;
+                var sc_invisible=1;
+                var sc_security="b58cd28d";
+                var scJsHost = (("https:" == document.location.protocol) ? "https://secure." : "http://www.");
+                document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+ "statcounter.com/counter/counter.js'></"+"script>");
+            </script>
+            <noscript><div class="statcounter"><a
+                title="site stats"
+                href="http://statcounter.com/free-web-stats/"
+                target="_blank"><img class="statcounter"
+                src="http://c.statcounter.com/9117595/0/b58cd28d/0/"
+                alt="site stats"
+            ></a></div></noscript>
+        </footer>
+
+    </body>
+</html>
