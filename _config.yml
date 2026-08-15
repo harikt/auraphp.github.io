@@ -10,7 +10,23 @@ relative_permalinks: false
 # modern layouts is written as {{ site.baseurl }}/... so both cases work.
 baseurl: ""
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+# Setting `exclude` replaces Jekyll's defaults rather than adding to them, so
+# the vendor/ and Gemfile entries below have to be restated: with bundler
+# caching, gems install into vendor/bundle inside the workspace and Jekyll
+# would otherwise try to read them as site content.
+exclude:
+  - ".rvmrc"
+  - ".rbenv-version"
+  - "README.md"
+  - "Rakefile"
+  - "changelog.md"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "vendor/bundle/"
+  - "vendor/cache/"
+  - "vendor/gems/"
+  - "vendor/ruby/"
+  - "node_modules/"
 highlighter: rouge
 markdown: kramdown
 
