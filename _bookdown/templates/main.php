@@ -80,7 +80,6 @@ $siblings = ($manual && method_exists($manual, 'getChildren')) ? $manual->getChi
                     <a href="/">Home</a>
                     <a href="/about">About</a>
                     <a href="/packages" class="active">Packages</a>
-                    <a href="/framework">Framework</a>
                     <a href="/blog">Blog</a>
                     <a href="/community">Community</a>
                     <a href="/contributing">Contributing</a>
